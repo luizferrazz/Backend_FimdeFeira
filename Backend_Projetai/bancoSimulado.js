@@ -4,13 +4,16 @@ const listaClientes = {
 }
 
 const clientes = {}
-
+let nextId = 1
+function getNextId(){
+    return nextId++
+}
 function cadastrarCliente(cliente){
-    if(!cliente.id) cliente.id = listaClientes.id
-    clientes[cliente.id] = cliente
+    const id = getNextId()
+    cliente.id = id
+    clientes[id] = cliente
     return cliente
 }
-
 function getCliente(id){
     return clientes[id] || {}
 }
